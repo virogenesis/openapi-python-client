@@ -5,7 +5,7 @@
 _{{ property.python_name }} = {{ source }}
 {{ property.python_name }}: {{ property.get_type_string() }}
     {% if not property.required %}
-if isinstance(_{{ property.python_name }},  Unset):
+if isinstance(_{{ property.python_name }},  Unset) or _{{ property.python_name }} is None:
     {{ property.python_name }} = UNSET
     {% endif %}
 else:
